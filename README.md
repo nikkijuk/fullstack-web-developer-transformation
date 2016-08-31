@@ -7,24 +7,32 @@ There's exciting movement of using web as platform and javascript as implementat
 
 ### Principles
 
+I need to define guiding principles behind technological choices, which allows me to concentrate to essence.
+
 * Programming style: Functional?
 * Programming model: Reactive?
 * Architecture: SPA? MV..? 
 * Layouts: Responsive?
 
+My current mantra is: Functional Reactive apps, which have responsive layout - but this leaves still lot open.
+
 ## Technologies
+
+It's essential question which technologies work together to allow me to develop elegant, easy to maintain and easy to extend web applications.
 
 * Javascript 'dialect': ES5? ES6? TypeScript? ..?
 * CSS 'dialect' : CSS3? LESS? SASS?
 * Frameworks: AngularJs? React? Elm?
-* Libraries: Cycle.js
+* Reactive libraries: Cycle.js? RxJs? Reactive.js? Bacon.js?
 * Mobile: Cordova? Ionic? React Native? Html5?
+
+It's just not applicable to try all of these, so I'll let [ThoughtWorks Technology Radar] (https://www.thoughtworks.com/de/radar) to guide me.
 
 ## Plan
 
-I've decided to go formalize my learning effort around MOOC course, and found one from [Coursera] (https://www.coursera.org/specializations/full-stack)
+I've decided to formalize my learning effort around MOOC course, and found one from [Coursera] (https://www.coursera.org/specializations/full-stack)
 
-Course alone wouldn't be enought, so I'd decided to harvest some resources which get me forward. I prefer having some books in addtion to online references.
+Course alone wouldn't be enought, so I've decided to harvest some resources which get me forward. I prefer having some books in addtion to online references.
 
 # References 
 
