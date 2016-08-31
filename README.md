@@ -24,6 +24,7 @@ It's essential question which technologies work together to allow me to develop 
 * CSS 'dialect' : CSS3? LESS? SASS?
 * Frameworks: AngularJs? React? Elm?
 * Reactive libraries: Cycle.js? RxJs? Reactive.js? Bacon.js?
+* Layouts: Bootsrap?
 * Mobile: Cordova? Ionic? React Native? Html5?
 
 It's just not applicable to try all of these, so I'll let [ThoughtWorks Technology Radar] (https://www.thoughtworks.com/de/radar) to guide me.
