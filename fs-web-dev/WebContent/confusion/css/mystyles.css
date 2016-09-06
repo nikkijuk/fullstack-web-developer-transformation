@@ -40,6 +40,10 @@ body{
     padding: 10px;
 }
 
+.affix {
+    top:100px;
+}
+
 .row-header{
     margin:0px auto;
     padding:0px auto;
