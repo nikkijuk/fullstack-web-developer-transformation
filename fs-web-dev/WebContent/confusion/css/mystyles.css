@@ -57,6 +57,12 @@ body{
     min-height: 300px;
 }
 
+#carouselButtons {
+    right:0px;
+    position: absolute;
+    bottom: 0px;
+}
+
 .row-header{
     margin:0px auto;
     padding:0px auto;
