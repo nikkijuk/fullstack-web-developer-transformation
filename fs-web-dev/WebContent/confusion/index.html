@@ -62,7 +62,12 @@
                          aria-hidden="true"></span> Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                   <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                
+                	<!-- without js:  <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+               		<!-- added js click handler directly to button:  onclick="$('#loginModal').modal('show');" -->
+                
+                
+                   <li><a id="loginButton"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                	</ul>
             </div>
         </div>
@@ -204,7 +209,12 @@
                 </div>
 			    <div class="col-xs-12 col-sm-2">
                   	<p style="padding:20px;"></p>
-               		<a type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#reserveModal">Reserve Table</a>
+               		
+               		<!-- without js: <a type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#reserveModal">Reserve Table</a>  -->
+               		<!-- added js click handler directly to button:  onclick="$('#reserveModal').modal('show');" -->
+               		
+               		<a type="button" class="btn btn-warning btn-block" id="reserveButton">Reserve Table</a>
+               		
                 </div>
 			</div>
 		</div>
@@ -434,6 +444,24 @@
             $("#mycarousel").carousel('cycle');
         });
     });
+</script>
+
+<!-- how to add logic to button by wiring things together -->
+
+<script>
+$(document).ready(function(){
+
+	// reserve
+	$("#reserveButton").click(function(){
+        $("#reserveModal").modal('toggle') // one can use 'show' instead of 'toggle' if needed
+    });
+	
+	// login
+	$("#loginButton").click(function(){
+        $("#loginModal").modal('toggle') // one can use 'show' instead of 'toggle' if needed
+    });
+	
+});
 </script>
 
 </html>
