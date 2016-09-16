@@ -75,3 +75,8 @@ OSX based enviroment
 
 - Sourcetree for Git
 - Brackets for html, css, js
+
+Links
+
+- http://scs-architecture.org/
+- http://roca-style.org/
