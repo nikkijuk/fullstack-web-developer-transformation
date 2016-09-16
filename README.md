@@ -17,6 +17,7 @@ Some other trends I'm feeling important are
 - Responsive & Reactive UI's
 - Cloud Computing & IaaS & PaaS
 - Serverless apps & FaaS & Web API's
+- Agile & Lean & ATDD & CI & ..
 
 Never mind if I miss some - there's lot of things which drive JS as language and JSON and REST as integration technologies forward and enable small and coherent systems to be implemented fast & effective.
 
