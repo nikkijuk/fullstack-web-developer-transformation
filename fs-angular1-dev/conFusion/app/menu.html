@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app> <!-- angular bootstrapped -->
+
+<head>
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head
+         content must come *after* these tags -->
+    <title>Ristorante Con Fusion: Menu</title>
+        <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/bootstrap-social.css" rel="stylesheet">
+    <link href="styles/mystyles.css" rel="stylesheet">
+
+	<!-- removed polyfills & hacks for old IE versions -->
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- initalized content with ng-init -->
+        <div class="row row-content"
+                      ng-init="
+                         dish=
+                         {
+                           name:'Uthapizza',
+                           image: 'images/uthapizza.png',
+                           category: 'mains',
+                           label:'Hot', 
+                           price:'4.99',
+                           description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
+                           comment: ''
+                        }">
+            <div class="col-xs-12">
+            	<!-- shows menu based on init values: alt was left to be constant and was corrected -->
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="#">
+                        <img class="media-object img-thumbnail"
+                         ng-src={{dish.image}} alt="{{dish.name}}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{dish.name}}
+                         <span class="label label-danger">{{dish.label}}</span>
+                         <span class="badge">{{dish.price | currency}}</span></h2>
+                        <p>{{dish.description}}</p>
+                        <!-- comment input field is bound to model -->
+                        <p>Comment: {{dish.comment}}</p>
+                        <p>Type your comment: <input type="text" ng-model="dish.comment"></p>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- take angular js in use -->
+	<script src="../bower_components/angular/angular.min.js"></script>
+
+</body>
+
+</html>
