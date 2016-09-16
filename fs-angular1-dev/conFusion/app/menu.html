@@ -30,9 +30,19 @@
         <!-- menuCtrl defined as alias -->
         <div class="row row-content" ng-controller="menuController as menuCtrl">
           <div class="col-xs-12">
-            	<!-- shows menu based on init values: alt was left to be constant and was corrected -->
-               <ul class="media-list">
-                <li class="media" ng-repeat="dish in menuCtrl.dishes">
+          
+			<ul class="nav nav-tabs" role="tablist">
+			    <li role="presentation" ng-class="{active:menuCtrl.isSelected(1)}"> <a ng-click="menuCtrl.select(1)" aria-controls="all menu" role="tab">The Menu</a></li>
+			    <li role="presentation" ng-class="{active:menuCtrl.isSelected(2)}"> <a ng-click="menuCtrl.select(2)" aria-controls="appetizers" role="tab">Appetizers</a></li>
+			    <li role="presentation" ng-class="{active:menuCtrl.isSelected(3)}"> <a ng-click="menuCtrl.select(3)" aria-controls="mains" role="tab">Mains</a></li>
+			    <li role="presentation" ng-class="{active:menuCtrl.isSelected(4)}"> <a ng-click="menuCtrl.select(4)" aria-controls="desserts" role="tab">Desserts</a></li>
+			</ul>
+      
+            	<!-- shows dishes based on init values: alt was left to be constant and was corrected -->
+             <div class="tab-content">
+               <ul class="media-list tab-pane fade in active">
+               <!-- filter using text field -->
+                <li class="media" ng-repeat="dish in menuCtrl.dishes | filter:menuCtrl.filtText">
                     <div class="media-left media-middle">
                         <a href="#">
                         <img class="media-object img-thumbnail"
@@ -44,13 +54,11 @@
                          <span class="label label-danger">{{dish.label}}</span>
                          <span class="badge">{{dish.price | currency}}</span></h2>
                         <p>{{dish.description}}</p>
-                        <p>Comment: {{dish.comment}}</p>
-                        <p>Type your comment:
-                         <input type="text" ng-model="dish.comment"></p>
                     </div>
                 </li>
             </ul>
             </div>
+        </div>
         </div>
     </div>
 
@@ -64,6 +72,10 @@
 		// controller creation logic is here
 		app.controller ('menuController', function() {
 			
+			this.tab = 1;
+			
+			this.filtText = '';
+						
 			// build initial content
 			var dishes=[
 	                    {
@@ -106,6 +118,24 @@
 			
 			// expose array to users of controller using this 
 			this.dishes = dishes;
+			
+			this.select = function (setTab) {
+				this.tab = setTab;
+				
+                if (setTab === 2)
+                    this.filtText = "appetizer";
+                else if (setTab === 3)
+                    this.filtText = "mains";
+                else if (setTab === 4)
+                    this.filtText = "dessert";
+                else
+                    this.filtText = "";
+		    }		
+			
+            this.isSelected = function (checkTab) {
+                return (this.tab === checkTab);
+            }
+			
 		});
 	</script>
 
