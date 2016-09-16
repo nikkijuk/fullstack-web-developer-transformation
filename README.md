@@ -62,3 +62,15 @@ Books
 * [Luis Atencio : Functional programming in Javasript] (https://www.manning.com/books/functional-programming-in-javascript)
 * [John Resig : Javascript ninja second edition] (https://www.manning.com/books/secrets-of-the-javascript-ninja-second-edition)
 
+## Tools
+
+I'm working on this material on two machines and environments
+
+RHEL 6.X based environment
+
+- Eclipse Neon for html, css, js, git
+
+OSX based enviroment
+
+- Sourcetree for Git
+- Brackets for html, css, js
