@@ -1,9 +1,23 @@
-# coursera-fs-web-dev
-Repository for Coursera Full Stack Web Developer Course
+# fullstack-web-developer-transformation
+
+This is repository Full Stack Web Developer transformation project of mine
 
 ## Motivation
 
 There's exciting movement of using web as platform and javascript as implementation language for end-to-end, or full stack, application development - for experienced java developer this is clearly a call for some rethinking.
+
+Some other trends to note are 
+- Microservices and self contained systems
+- Domain Driven Design
+- Functional programming
+- Reactive programming & UI's
+- Event Stream Processing & Big Data
+- Single page applications
+- Hybrid mobile apps
+- Cloud Computing & IaaS & PaaS
+- Serverless apps & FaaS & Web API's
+
+Never mind if I miss some - there's lot of things which drive JS as language and JSON and REST as integration technologies forward and enable smaller and coherent systems to be implemented fast & effective.
 
 ### Principles
 
