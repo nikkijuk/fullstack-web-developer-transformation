@@ -10,6 +10,10 @@
          
     <title>Ristorante Con Fusion: Menu</title>
     
+	<!-- add grunt definitions  -->
+	
+    <!-- build:css styles/main.css -->
+
     <!-- dependencies -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -18,6 +22,9 @@
     <!-- project specific extensions -->
     <link href="styles/bootstrap-social.css" rel="stylesheet">
     <link href="styles/mystyles.css" rel="stylesheet">
+
+	<!-- endbuild -->
+
 
 	<!-- removed polyfills & hacks for old IE versions -->
 
@@ -64,80 +71,13 @@
 
 	<!-- take angular js in use -->
 	<!-- angular needs to be loaded before using angular variable -->
-	<script src="../bower_components/angular/angular.min.js"></script>
 
-	<script>
-		var app = angular.module ('confusionApp', []);
+	<!-- grunt build definitions added -->
 
-		// controller creation logic is here
-		app.controller ('menuController', function() {
-			
-			this.tab = 1;
-			
-			this.filtText = '';
-						
-			// build initial content
-			var dishes=[
-	                    {
-	                      name:'Uthapizza',
-	                      image: 'images/uthapizza.png',
-	                      category: 'mains',
-	                      label:'Hot',
-	                      price:'4.99',
-	                      description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-	                      comment: ''
-	                     },
-	                     {
-	                      name:'Zucchipakoda',
-	                      image: 'images/zucchipakoda.png',
-	                      category: 'appetizer',
-	                      label:'',
-	                      price:'1.99',
-	                      description:'Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce',
-	                      comment: ''
-	                     },
-	                     {
-	                      name:'Vadonut',
-	                      image: 'images/vadonut.png',
-	                      category: 'appetizer',
-	                      label:'New',
-	                      price:'1.99',
-	                      description:'A quintessential ConFusion experience, is it a vada or is it a donut?',
-	                      comment: ''
-	                     },
-	                     {
-	                      name:'ElaiCheese Cake',
-	                      image: 'images/elaicheesecake.png',
-	                      category: 'dessert',
-	                      label:'',
-	                      price:'2.99',
-	                      description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
-	                      comment: ''
-	                     }
-	                   ];
-			
-			// expose array to users of controller using this 
-			this.dishes = dishes;
-			
-			this.select = function (setTab) {
-				this.tab = setTab;
-				
-                if (setTab === 2)
-                    this.filtText = "appetizer";
-                else if (setTab === 3)
-                    this.filtText = "mains";
-                else if (setTab === 4)
-                    this.filtText = "dessert";
-                else
-                    this.filtText = "";
-		    }		
-			
-            this.isSelected = function (checkTab) {
-                return (this.tab === checkTab);
-            }
-			
-		});
-	</script>
+	<!-- build:js scripts/main.js -->
+	  <script src="../bower_components/angular/angular.min.js"></script>
+	  <script src="scripts/app.js"></script>
+	<!-- endbuild -->
 
 </body>
 
