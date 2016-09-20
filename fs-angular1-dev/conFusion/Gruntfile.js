@@ -1,10 +1,9 @@
 'use strict';
 
 module.exports = function(grunt) {
-	// Define the configuration for all the tasks
-	grunt.initConfig({
 
-	});
+	// Define the configuration for all the tasks
+	grunt.initConfig({});
 
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
