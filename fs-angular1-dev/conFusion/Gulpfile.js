@@ -28,12 +28,6 @@ gulp.task('clean', function() {
 	return del([ 'dist' ]);
 });
 
-gulp.task('usemin', [ 'jshint' ], function() {
-	return gulp.src('./app/menu.html')
-	 		   .pipe(usemin({css : [ minifycss(), rev() ], js : [ uglify(), rev() ]	}))
-	 		   .pipe(gulp.dest('dist/'));
-});
-
 // Images
 gulp.task('imagemin', function() {
 	return del([ 'dist/images' ]), 
@@ -79,13 +73,13 @@ gulp.task('browser-sync', [ 'default' ], function() {
 	gulp.watch([ 'dist/**' ]).on('change', browserSync.reload);
 });
 
+// minify
 gulp.task('usemin',['jshint'], function () {
 	  return gulp.src('./app/menu.html')
 	    .pipe(usemin({
 	      css:[minifycss(),rev()],
 	      js: [ngannotate(),uglify(),rev()]
 	    }))
-	    
 	    .pipe(gulp.dest('dist/'));
 	});
 
