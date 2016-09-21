@@ -10,25 +10,24 @@
     
     <title>Ristorante Con Fusion: Menu</title>
     
-    <!-- external dependencies -->
+    <!-- build:css styles/main.css -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-	<!-- project specific -->
     <link href="styles/bootstrap-social.css" rel="stylesheet">
     <link href="styles/mystyles.css" rel="stylesheet">
+    <!-- endbuild -->
 
 </head>
 
 <body>
 
     <div class="container">
-    	<!-- define controller at row level -->
-        <div class="row row-content" ng-controller="dishDetailController">
-                
+        
+    <div class="container">
+        <div class="row row-content" ng-controller="DishDetailController">
             <div class="col-xs-12">
-                
                 <!-- show dish -->
                 <div class="media">
                     <div class="media-left media-middle">
@@ -46,90 +45,96 @@
                         <p>{{dish.description}}</p>
                     </div>
                 </div>
-
             </div>
             <div class="col-xs-9 col-xs-offset-1">
+            
+               	<!-- bind ordering criteria to scope using ng-model -->
 
-				<!-- bind ordering criteria to scope using ng-model -->
-				Order : <input type="text" name ="order" ng-model="order">
-
+				Order : <input type="text" name ="order" ng-model="criteria">
+            
                 <!-- show comments -->                
-                <!-- loop over comments, order them by given criteria from scope -->
-           		<div ng-repeat="comment in dish.comments | orderBy:order">
+                <!-- loop over comments-->
+                <!-- order them by given criteria from scope with orderBy -->  
+
+           		<ul class="list-unstyled" ng-repeat="comment in dish.comments | orderBy:criteria">
            			<blockquote>
 					  <p><span class="badge">{{comment.rating}}</span> {{comment.comment}}</p>
 					  <!-- date needs to be formatted  -->
 					  <!-- didn't manage for some reason to get direct binding to work: {{c.date | date : 'MM/dd/yyyy'}} -->
-					  <footer><span ng-bind="comment.date | date:'MM/dd/yyyy'"></span> <cite title="Source Title">{{comment.author}}</cite></footer>
+					  <footer> <cite title="Source Title">{{comment.author}}</cite>, <span ng-bind="comment.date | date:'MM/dd/yyyy'"></span> </footer>
 					</blockquote>
-           			
-           		</div>
+           		</ul>
+            </div>
+            <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
+            
+            	<!-- preview -->
+            	<!-- ng-show used to control visibility -->
+            
+                <ul class="list-unstyled" ng-show="commentForm.$valid && !commentForm.$pristine">
+					<blockquote>
+					  <p><span class="badge">{{newComment.rating}}</span> {{newComment.comment}}</p>
+					  <!-- date needs to be formatted  -->
+					  <!-- didn't manage for some reason to get direct binding to work: {{c.date | date : 'MM/dd/yyyy'}} -->
+					  <footer> <cite title="Source Title">{{newComment.author}}</cite></footer>
+					</blockquote>
+                 </ul>
+                 
+                <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
+					
+					<!-- rating -->
+					<!-- rating possibilities are listed using ng-repeat -->
 
+                    <div class="form-group" ng-class="{ 'has-error' : invalidChannelSelection }">
+                        <label for="rating" class="col-sm-2 control-label">Rating</label>
+                        <div class="col-sm-10">
+                           <div class="radio-inline" ng-repeat="rating in ratings" >
+                               <input type="radio" name="{{rating}}" value="{{rating}}" ng-model="newComment.rating">{{rating}}</input>
+                           </div>
+                        </div>
+                    </div>                    
+					
+					<!-- author -->
+					<!-- errors are set to form group of author using ng-class -->
+					<!-- help block under author is shown with ng-show -->
+
+					<div class="form-group" ng-class="{ 'has-error' : commentForm.author.$error.required && !commentForm.author.$pristine}">
+                        <label for="author" class="col-sm-2 control-label">Author</label>
+                        <div class="col-sm-10">
+                        	<input type="text" class="form-control" id="author" name="author" placeholder="Enter Author Name" ng-model="newComment.author" required>
+                        	<span ng-show="commentForm.author.$error.required && !commentForm.author.$pristine" class="help-block">Authors name is required.</span>
+                        </div>
+                    </div>
+
+					<!-- comment -->
+					<!-- errors and help are managed like with author -->
+
+                    <div class="form-group"  ng-class="{ 'has-error' : commentForm.comment.$error.required && !commentForm.comment.$pristine }">
+                        <label for="comment" class="col-sm-2 control-label">Comment</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="comment" name="comment" rows="12" ng-model="newComment.comment" required></textarea>
+                        	<span ng-show="commentForm.comment.$error.required && !commentForm.comment.$pristine" class="help-block">Comment text is required.</span>
+                        </div>
+                    </div> 
+
+					<!-- save -->
+					<!-- submit button disabled with ng-disabled if form is not valid -->
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">Save Comment</button>
+                        </div>
+                    </div>
+					
+                </form>
             </div>
         </div>
-
     </div>
-	<!-- build:js scripts/main.js -->
-	  <script src="../bower_components/angular/angular.min.js"></script>
-	  <script src="scripts/app.js"></script>
-	<!-- endbuild -->
-
-    <script>
-
-        var app = angular.module('confusionApp',[]);
         
-        app.controller('dishDetailController', function($scope) {
-
-            var dish={
-                          name:'Uthapizza',
-                          image: 'images/uthapizza.png',
-                          category: 'mains', 
-                          label:'Hot',
-                          price:'4.99',
-                          description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.',
-                           comments: [
-                               {
-                                   rating:5,
-                                   comment:"Imagine all the eatables, living in conFusion!",
-                                   author:"John Lemon",
-                                   date:"2012-10-16T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:4,
-                                   comment:"Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-                                   author:"Paul McVites",
-                                   date:"2014-09-05T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:3,
-                                   comment:"Eat it, just eat it!",
-                                   author:"Michael Jaikishan",
-                                   date:"2015-02-13T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:4,
-                                   comment:"Ultimate, Reaching for the stars!",
-                                   author:"Ringo Starry",
-                                   date:"2013-12-02T17:57:28.556094Z"
-                               },
-                               {
-                                   rating:2,
-                                   comment:"It's your birthday, we're gonna party!",
-                                   author:"25 Cent",
-                                   date:"2011-12-02T17:57:28.556094Z"
-                               }
-                               
-                           ]
-                    };
-            
-            <!-- added dish to scope -->
-            
-            $scope.dish = dish;
-            
-        });
-
-    </script>
-
+	<!-- build:js scripts/main.js -->
+	<script src="../bower_components/angular/angular.min.js"></script>
+	<script src="scripts/app.js"></script>
+	<!-- endbuild -->
+  
 </body>
 
 </html>
