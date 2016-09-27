@@ -120,6 +120,7 @@ angular.module('confusionApp')
       .controller('IndexController', ['$scope', 'corporateFactory', 'menuFactory', function($scope, corporateFactory, menuFactory) {
  
     	  // lazy implementation: bind all directly to scope -- methods could be better here, but ...
+    	  // it's not clear from assignement if "with data obtained through the controller" means data can be delivered thru $scope
     	  
        	  $scope.leader = corporateFactory.getLeader (3);
        	  
@@ -132,6 +133,7 @@ angular.module('confusionApp')
       .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
 
     	  // lazy implementation: bind all directly to scope -- methods could be better here, but ...
+    	  // it's not clear from assignement if "with data obtained through the controller" means data can be delivered thru $scope
     	  
     	  $scope.leaders = corporateFactory.getLeaders ();
     	      	      	  
