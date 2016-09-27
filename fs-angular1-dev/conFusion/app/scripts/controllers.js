@@ -3,7 +3,8 @@
 angular.module('confusionApp')
 
         .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {            
-            $scope.tab = 1;
+            
+        	$scope.tab = 1;
             $scope.filtText = '';
             $scope.showDetails = false;
 
@@ -70,7 +71,7 @@ angular.module('confusionApp')
             $scope.dish = dish;
         }])
         
-        .controller('DishCommentController', ['$scope', function($scope) {
+      .controller('DishCommentController', ['$scope', function($scope) {
 
         	// list possible ratings for radio buttons
            $scope.ratings = [0,1,2,3,4,5];
@@ -114,4 +115,26 @@ angular.module('confusionApp')
             }
         }])
 
+       // implement the IndexController and About Controller here
+        
+      .controller('IndexController', ['$scope', 'corporateFactory', 'menuFactory', function($scope, corporateFactory, menuFactory) {
+ 
+    	  // lazy implementation: bind all directly to scope -- methods could be better here, but ...
+    	  
+       	  $scope.leader = corporateFactory.getLeader (3);
+       	  
+    	  $scope.promotion = menuFactory.getPromotion(0);
+    	  
+    	  $scope.dish = menuFactory.getDish (0); // uthapizza rules 
+
+      }])
+
+      .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
+
+    	  // lazy implementation: bind all directly to scope -- methods could be better here, but ...
+    	  
+    	  $scope.leaders = corporateFactory.getLeaders ();
+    	      	      	  
+      }])
+        
 ;
