@@ -58,6 +58,7 @@ gulp.task('watch', [ 'browser-sync' ], function() {
 
 });
 
+
 // sync
 gulp.task('browser-sync', [ 'default' ], function() {
 	var files = [ 'app/**/*.html', 'app/styles/**/*.css',
@@ -66,7 +67,7 @@ gulp.task('browser-sync', [ 'default' ], function() {
 	browserSync.init(files, {
 		server : {
 			baseDir : "dist",
-			index : "menu.html"
+			index : "index.html"
 		}
 	});
 	// Watch any files in dist/, reload on change
@@ -75,12 +76,12 @@ gulp.task('browser-sync', [ 'default' ], function() {
 
 // minify
 gulp.task('usemin',['jshint'], function () {
-	  return gulp.src('./app/menu.html')
-	    .pipe(usemin({
-	      css:[minifycss(),rev()],
-	      js: [ngannotate(),uglify(),rev()]
-	    }))
-	    .pipe(gulp.dest('dist/'));
+	  return gulp.src('./app/**/*.html')
+	      .pipe(usemin({
+	        css:[minifycss(),rev()],
+	        js: [ngannotate(),uglify(),rev()]
+	      }))
+	      .pipe(gulp.dest('dist/'));
 	});
 
 // default at the end of file
