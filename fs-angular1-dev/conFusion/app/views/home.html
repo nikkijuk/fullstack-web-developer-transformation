@@ -7,23 +7,26 @@
             </div>
 
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-            
-                <div class="media">
-                    <div class="media-left media-middle">
-                        <a data-ui-sref="app.dishdetails({id: dish._id})">
-                           <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="{{dish.name}}">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                    	<!-- header of dish -->
-                        <h2 class="media-heading">{{dish.name}}
-                         	<span class="label label-danger">{{dish.label}}</span>
-                         	<span class="badge">{{dish.price | currency}}</span>
-                        </h2>
-                        <!-- description text -->
-                        <p>{{dish.description}}</p>
-                    </div>
-                </div>
+               <div ng-if="!showDish">
+                    <h3>{{message}}</h3>
+               </div>
+                
+               <div class="media" ng-if="showDish">                    
+	               <div class="media-left media-middle">
+	                     <a data-ui-sref="app.dishdetails({id: dish._id})">
+	                        <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="{{dish.name}}">
+	                     </a>
+	               </div>
+	               <div class="media-body">
+	                 	<!-- header of dish -->
+	                     <h2 class="media-heading">{{dish.name}}
+	                      	<span class="label label-danger">{{dish.label}}</span>
+	                      	<span class="badge">{{dish.price | currency}}</span>
+	                     </h2>
+	                     <!-- description text -->
+	                     <p>{{dish.description}}</p>
+	               </div>
+               </div>
             </div>
         </div>
 
