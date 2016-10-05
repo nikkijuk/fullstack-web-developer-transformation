@@ -7,9 +7,16 @@ angular.module('confusionApp')
         	$scope.tab = 1;
             $scope.filtText = '';
             $scope.showDetails = false;
-
-            $scope.dishes= menuFactory.getDishes();
                         
+            $scope.dishes= []; // empty data structure
+            
+            menuFactory.getDishes()
+            .then(
+                function(response) {
+                    $scope.dishes = response.data; // fill data
+                }
+            );
+            
             $scope.select = function(setTab) {
                 $scope.tab = setTab;
                 
@@ -67,8 +74,15 @@ angular.module('confusionApp')
         }])
         
       .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
-            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
-            $scope.dish = dish;
+            
+            $scope.dish = {};
+            menuFactory.getDish(parseInt($stateParams.id,10)).then(
+			    function(response){
+			        $scope.dish = response.data;
+			        $scope.showDish=true;
+			    }
+			);
+            
         }])
         
       .controller('DishCommentController', ['$scope', function($scope) {
@@ -126,8 +140,15 @@ angular.module('confusionApp')
        	  
     	  $scope.promotion = menuFactory.getPromotion(0);
     	  
-    	  $scope.dish = menuFactory.getDish (0); // uthapizza rules 
+          $scope.dish = {};
 
+          menuFactory.getDish(0)
+          .then(
+              function(response){
+                  $scope.dish = response.data;
+                  $scope.showDish = true;
+              }
+          );
       }])
 
       .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
