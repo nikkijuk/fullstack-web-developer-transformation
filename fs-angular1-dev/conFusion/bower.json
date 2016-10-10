@@ -26,6 +26,8 @@
     "font-awesome": "~4.6.3",
     "angular": "~1.5.8",
     "angular-route": "^1.5.8",
-    "angular-ui-router": "^0.3.1"
+    "angular-ui-router": "^0.3.1",
+    "angular-resource": "^1.5.8",
+    "angular-mocks": "^1.5.8"
   }
 }

@@ -57,7 +57,11 @@
 
 			   <!-- media list of leaders -->
 
-               <ul class="media-list">
+               <div ng-if="!showLeaders">
+                    <h3>{{message}}</h3>
+               </div>
+                
+               <ul class="media-list" ng-if="showLeaders">
               	 <li class="media" ng-repeat="leader in leaders">
 				    <div class="media-left">
 				      <a href="#">
