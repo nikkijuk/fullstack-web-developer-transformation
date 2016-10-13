@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('conFusion.services', ['ngResource'])
-.constant("baseURL","http://localhost:3000/")
-.service('menuFactory', ['$resource', 'baseURL', function($resource,baseURL) {
+.constant("baseURL", "http://localhost:3000/")
+.service('menuFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
 
 	var promotions = [
 		{

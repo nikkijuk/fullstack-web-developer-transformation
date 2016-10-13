@@ -1,25 +1,35 @@
-<ion-modal-view>
+<!-- I wonder if I should use sub controller, extra service or combine controller -->
+<!-- as I don't really know right design decisions I just accept that current implementation may not work completely right -->
+
+<!-- use sub controller here -->
+<ion-modal-view ng-controller="DishCommentController">
+    
   <ion-header-bar>
     <h1 class="title">Rate dish</h1>
     <div class="buttons">
-      <button class="button" ng-click="closeRating()">Close</button>
+      
+        <!-- cancelComment method is set to scope in main controller --> 
+        <button class="button" ng-click="cancelComment(dish.id)">Close</button>
     </div>
   </ion-header-bar>
-  <ion-content  class="has-header">
-    <form id="ratingForm" name="ratingForm" ng-submit="saveRating()">
+    
+  <ion-content  class="has-header" >
+      
+    <!-- submitComment is set to scope in sub controller -->  
+    <form id="commentForm" name="commentForm" ng-submit="submitComment()">
       <div class="list">
         <label class="item item-input item-select">
           <span class="input-label">Rating</span>
-            <select ng-model="rating.rating">
-                <option ng-repeat="n in [1,2,3,4,5,6]" value="{{n}}">{{n}}</option>
+            <select ng-model="mycomment.rating">
+                <option ng-repeat="n in [1,2,3,4,5]" value="{{n}}">{{n}}</option>
             </select>
         </label>
         <label class="item item-input">
           <span class="input-label">Name</span>
-          <input  type="text" ng-model="rating.name">
+          <input  type="text" ng-model="mycomment.author">
         </label>
         <label class="item item-input">
-          <textarea placeholder="Comments" ng-model="rating.comment"></textarea>
+          <textarea placeholder="Comments" ng-model="mycomment.comment"></textarea>
         </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Save</button>
@@ -27,4 +37,5 @@
       </div>
     </form>
   </ion-content>
+    
 </ion-modal-view>

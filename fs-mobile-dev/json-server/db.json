@@ -6,7 +6,7 @@
       "image": "images/uthapizza.png",
       "category": "mains",
       "label": "Hot",
-      "price": "4.99",
+      "price": 4.99,
       "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
       "comments": [
         {
@@ -38,6 +38,36 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": "3",
+          "comment": "aaa",
+          "author": "aa",
+          "date": "2016-10-13T21:01:01.443Z"
+        },
+        {
+          "rating": "3",
+          "comment": "asasasasasas",
+          "author": "asas",
+          "date": "2016-10-13T21:01:16.390Z"
+        },
+        {
+          "rating": "6",
+          "comment": "sss",
+          "author": "sss",
+          "date": "2016-10-13T21:03:24.014Z"
+        },
+        {
+          "rating": "6",
+          "comment": "sss",
+          "author": "ssssss",
+          "date": "2016-10-13T21:04:41.087Z"
+        },
+        {
+          "rating": "6",
+          "comment": "sss",
+          "author": "ssssss",
+          "date": "2016-10-13T21:04:41.087Z"
         }
       ]
     },
@@ -47,7 +77,7 @@
       "image": "images/zucchipakoda.png",
       "category": "appetizer",
       "label": "",
-      "price": "1.99",
+      "price": 1.99,
       "description": "Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce",
       "comments": [
         {
@@ -79,6 +109,18 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": "4",
+          "comment": "aaaa",
+          "author": "aa",
+          "date": "2016-10-13T21:07:32.750Z"
+        },
+        {
+          "rating": "6",
+          "comment": "aaa",
+          "author": "aaa",
+          "date": "2016-10-13T21:07:45.377Z"
         }
       ]
     },
@@ -88,7 +130,7 @@
       "image": "images/vadonut.png",
       "category": "appetizer",
       "label": "New",
-      "price": "1.99",
+      "price": 1.99,
       "description": "A quintessential ConFusion experience, is it a vada or is it a donut?",
       "comments": [
         {
@@ -120,6 +162,12 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": "4",
+          "comment": "O jee",
+          "author": "Jukka",
+          "date": "2016-10-13T19:44:50.870Z"
         }
       ]
     },
@@ -129,7 +177,7 @@
       "image": "images/elaicheesecake.png",
       "category": "dessert",
       "label": "",
-      "price": "2.99",
+      "price": 2.99,
       "description": "A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms",
       "comments": [
         {
@@ -161,6 +209,48 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": "1",
+          "comment": "xxxx",
+          "author": "yuk",
+          "date": "2016-10-13T19:48:22.911Z"
+        },
+        {
+          "rating": "3",
+          "comment": "sss",
+          "author": "ss",
+          "date": "2016-10-13T19:51:46.430Z"
+        },
+        {
+          "rating": "3",
+          "comment": "sss",
+          "author": "ss",
+          "date": "2016-10-13T19:51:46.430Z"
+        },
+        {
+          "rating": "3",
+          "comment": "sss",
+          "author": "sss",
+          "date": "2016-10-13T19:52:31.601Z"
+        },
+        {
+          "rating": "4",
+          "comment": "ssss",
+          "author": "sss",
+          "date": "2016-10-13T19:53:54.740Z"
+        },
+        {
+          "rating": "5",
+          "comment": "ssss",
+          "author": "sss",
+          "date": "2016-10-13T19:54:06.609Z"
+        },
+        {
+          "rating": "5",
+          "comment": "sss",
+          "author": "sss",
+          "date": "2016-10-13T19:55:56.021Z"
         }
       ]
     }
@@ -209,7 +299,5 @@
       "description": "Award winning three-star Michelin chef with wide International experience having worked closely with whos-who in the culinary world, he specializes in creating mouthwatering Indo-Italian fusion experiences. He says, Put together the cuisines from the two craziest cultures, and you get a winning hit! Amma Mia!"
     }
   ],
-  "feedback": [
-
-  ]
+  "feedback": []
 }
