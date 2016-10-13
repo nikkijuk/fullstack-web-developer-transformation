@@ -1,0 +1,30 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Rate dish</h1>
+    <div class="buttons">
+      <button class="button" ng-click="closeRating()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content  class="has-header">
+    <form id="ratingForm" name="ratingForm" ng-submit="saveRating()">
+      <div class="list">
+        <label class="item item-input item-select">
+          <span class="input-label">Rating</span>
+            <select ng-model="rating.rating">
+                <option ng-repeat="n in [1,2,3,4,5,6]" value="{{n}}">{{n}}</option>
+            </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Name</span>
+          <input  type="text" ng-model="rating.name">
+        </label>
+        <label class="item item-input">
+          <textarea placeholder="Comments" ng-model="rating.comment"></textarea>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Save</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>
