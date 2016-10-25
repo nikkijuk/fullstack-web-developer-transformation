@@ -313,8 +313,6 @@ angular.module('conFusion.controllers', [])
             // shown
           });
         
-        };
-        
         // week 4.2
         // TODO: Toast
         // http://ngcordova.com/docs/plugins/toast/
