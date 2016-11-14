@@ -1,0 +1,17 @@
+{
+  "name": "node-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rectangle-1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.14.2",
+    "session-file-store": "^0.2.2",
+    "yargs": "^6.3.0"
+  }
+}
