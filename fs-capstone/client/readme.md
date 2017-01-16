@@ -36,7 +36,7 @@ npm install --save bootstrap@3.3.7
 
 npm install --save jquery@3.1.1
 
-## Create all constructions possible with cli: 
+## Create angular constructs with cli 
 
 app, modules, components, services, classes, ..
 
@@ -45,9 +45,10 @@ https://github.com/angular/angular-cli#generating-components-directives-pipes-an
 ## create app
 
 ng new flowmarkt
+
 cd flowmarkt
 
-note: "-router" and other flags make life easier here
+note: "-router" and other flags make life easier here (but I forgot to use them)
 
 # integrate bootstrap and jquery to created app
 
@@ -71,15 +72,23 @@ angular-cli.json
 
 modify layout src/app/app.component.html
 
-# add container – works if text is moved away from left border os page
-
 ```
    <div class="container">
        {{title}}
    </div>
 ```
 
+start live server with http reloading
+
+ng serve
+
+open browser at http://localhost:4200
+
+bootstrap container definition works if text is moved away from left border of page
+
 ## test that live reloading functions
+
+change text at page to see that live reloading funtions 
 
 app.components.ts
 
@@ -89,7 +98,8 @@ title = 'Flow Markt';
 
 ## create ui components
 
-# create add and modify item component
+# create edit item component
+
 ng generate component fm-item-edit-form
 
  create src/app/fm-item-edit-form/fm-item-edit-form.component.css
@@ -99,6 +109,7 @@ ng generate component fm-item-edit-form
  update src/app/app.module.ts
 
 # create list of items component
+
 ng generate component fm-item-details
 
  create src/app/fm-item-details/fm-item-details.component.css
@@ -107,8 +118,8 @@ ng generate component fm-item-details
  create src/app/fm-item-details/fm-item-details.component.ts
  update src/app/app.module.ts
 
-
 # create item details component
+
 ng generate component fm-item-list
 
  create src/app/fm-item-list/fm-item-list.component.css
@@ -123,6 +134,8 @@ ng generate class fm-item
 
  create src/app/fm-item.ts
 
+ add constructor to define attributes
+
 ```
 export class FmItem {
 
@@ -132,8 +145,9 @@ export class FmItem {
 }
 ```
 
-# create service for reading and writing posts over http
-# src/app/post.service.ts
+## create services 
+
+for reading and writing items over http we need to create simple service
 
 ng generate service fm-item-service
 
@@ -146,13 +160,14 @@ edit app.module.ts
 
 ```
 import { FmItemService } from './fm-item.service'; // import service
-
-(...)
-
+ ..
+ 
  providers: [FmItemService], // provide service
 ```
 
 # add methods to service
+
+create, get single, get all
 
 ```
 import { Injectable } from '@angular/core';
