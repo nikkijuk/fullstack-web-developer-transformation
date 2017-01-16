@@ -1,0 +1,23 @@
+<header class="navbar navbar-light navbar-static-top">
+  <div class="container">
+    <nav>
+        <ul class="nav navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-item nav-link active" routerLink="/">Flow</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link " routerLink="/new">New</a>
+          </li>
+        </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1> {{title}} </h1>
+  <p class="lead">FlowMarkt makes recycling fun: time spent presenting and finding items, negotiating conditions as well as delivering goods is made easy for you.</p>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

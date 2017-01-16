@@ -1,0 +1,30 @@
+<div class="col-sm-9">
+
+  <!-- items with async subscribes to returned observable-->
+  <div class="row" *ngFor="let item of items | async">
+    <h3>{{item.title}}</h3>
+
+    <!--truncate is used to shorten text of item.content if text is over given length -->
+    <div>{{ item.content | truncate:250 }}</div>
+
+    <!--link with id from current item can route user to details --> 
+    <a class="link" [routerLink]="['/items',item.id]">More ...</a>
+  </div>
+</div>
+<div class="col-sm-3">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Help needed</h4>
+      <p class="card-text">Give your unnecessary winter clothes to refugees</p>
+      <a href="#" class="btn btn-primary">ankommen.eu</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">Parners</h4>
+      <p class="card-text">Our partner timmi.io helps on delivery</p>
+      <a href="#" class="btn btn-primary">Timmi.io</a>
+    </div>
+  </div>
+</div>
+

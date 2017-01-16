@@ -1,0 +1,7 @@
+<!-- information is only shown if selected item has value -->
+<div *ngIf="selectedItem">
+  <h2>{{ selectedItem.title }}</h2>
+  <small>{{ selectedItem.author }} {{ selectedItem.time }}</small>
+  <p>{{ selectedItem.content }}</p>
+</div>
+
