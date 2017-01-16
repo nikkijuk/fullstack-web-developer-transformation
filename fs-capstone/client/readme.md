@@ -23,10 +23,18 @@ Comprehensive howto is at https://www.sitepoint.com/ultimate-angular-cli-referen
 ## Check versions of dependencies
 
 http://getbootstrap.com/
-3.3.7
+
+use 3.3.7
 
 https://jquery.com/
-3.1.1
+
+use 3.1.1
+
+# install bootstrap and jquery
+
+npm install --save bootstrap@3.3.7
+
+npm install --save jquery@3.1.1
 
 ## Create all constructions possible with cli: 
 
@@ -40,11 +48,6 @@ ng new flowmarkt
 cd flowmarkt
 
 note: "-router" and other flags make life easier here
-
-# install bootstrap and jquery
-
-npm install --save bootstrap@3.3.7
-npm install --save jquery@3.1.1
 
 # integrate bootstrap and jquery to created app
 
