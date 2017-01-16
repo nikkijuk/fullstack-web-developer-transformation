@@ -160,7 +160,8 @@ edit app.module.ts
 
 ```
 import { FmItemService } from './fm-item.service'; // import service
- ..
+ 
+ (...)
  
  providers: [FmItemService], // provide service
 ```
@@ -207,7 +208,11 @@ export class FmItemService {
 }
 ```
 
+to 	understand how observables & subscribe work see https://github.com/ReactiveX/rxjs
+
 ## create routes
+
+create routes for main page (containing list of items), single item (id) and creating new
 
 ```
 	import {RouterModule}   from '@angular/router'; // import router
@@ -231,6 +236,8 @@ export class FmItemService {
    ])
 ```
 
+
+
 ## add placeholder for routing to app.component.html page
 
 ```
@@ -238,6 +245,8 @@ export class FmItemService {
  <router-outlet></router-outlet>
 </div>
 ```
+
+after this result of routing should be seen inside main page
 
 ## add menu to app.component.html page
 
@@ -262,6 +271,8 @@ export class FmItemService {
  <p class="lead">FlowMarkt makes recycling fun: time spent presenting and finding items, negotiating conditions as well as delivering goods is made easy for you.</p>
 </div>
 ```
+
+menu is impelemented using bootstraps navigation components https://v4-alpha.getbootstrap.com/components/navbar/
 
 ## add details
 
@@ -330,7 +341,7 @@ import {isUndefined} from "util";
 
 # add list
 
-#
+# under is some cli commands
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -360,16 +371,13 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## =========================================================================================================================================================
 ## Initial (only after checkout)
+
 npm install
 
 ## JSON-Server
-json-server src/asset/configuration.json -p 9990
 
-## Web-Server
-npm start
-
+json-server db.json -p 9990
 
 –
 
