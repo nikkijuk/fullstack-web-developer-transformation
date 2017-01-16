@@ -274,7 +274,7 @@ after this result of routing should be seen inside main page
 
 menu is impelemented using bootstraps navigation components https://v4-alpha.getbootstrap.com/components/navbar/
 
-## add details
+## add details service
 
 fm-item.details.component.ts
 
@@ -308,7 +308,10 @@ export class FmItemDetailsComponent implements OnInit {
 }
 ```
 
-## add form
+## add details view
+
+fm-item.details.component.html
+
 
 ```
 <!-- information is only shown if selected item has value -->
@@ -339,7 +342,90 @@ import {isUndefined} from "util";
  }
 ```
 
-# add list
+# add create new item form
+
+add reactive forms as dependency to app module
+
+```
+import { ReactiveFormsModule } from '@angular/forms';
+
+(...)
+
+  imports: [
+	(...)
+    ReactiveFormsModule,
+```
+
+# add html edit form
+
+note: this is plain form, no binding to ng
+
+```
+<div class="container">
+    <form>
+        <div class="row">
+          <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="content" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+              <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="author" class="col-sm-2 control-label">Author</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" id="author" name="author" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-2">
+              <p style="padding: 20px;"></p>
+            </div>
+            <div class="col-sm-2">
+              <div class="btn-group" role="group">
+                <button type="submit" class="btn button--save btn-success">Add</button>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn button--cancel">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+</div>
+```
+
+# add html edit component
+
+note: plain component, no forms yet
+
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-fm-item-edit-form',
+  templateUrl: './fm-item-edit-form.component.html',
+  styleUrls: ['./fm-item-edit-form.component.css']
+})
+export class FmItemEditFormComponent implements OnInit {
+
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+
+}
+```
 
 # under is some cli commands
 
