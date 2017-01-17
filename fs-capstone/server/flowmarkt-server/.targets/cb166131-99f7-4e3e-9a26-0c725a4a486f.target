@@ -1,0 +1,76 @@
+type: bluemix
+server:
+  displayName: US South
+  name: us-south
+  host: us.apiconnect.ibmcloud.com
+org:
+  url: 'https://us.apiconnect.ibmcloud.com/v1/orgs/587399640cf2151052167ab1'
+  id: 587399640cf2151052167ab1
+  name: nikki-consulting-dev
+  status: active
+  orgType: apiProvider
+  displayName: nikki-consulting (dev)
+  externalOrgId: 350a26f3-9336-4675-a34e-3ba5703235d0
+  externalInviteOverride: 'https://console.ng.bluemix.net/apis/catalog/invitation'
+  externalSpaceId: 350a26f3-9336-4675-a34e-3ba5703235d0
+  externalNativeOrgId: d5ef94cc-9347-4ee5-aba5-58e32c31a082
+  advPortalOverride: true
+  extUaaAuthenticated: false
+  requiresSSLClientCertCheck: false
+  dormant: false
+catalog:
+  id: 587399650cf2151052167abd
+  orgId: 587399640cf2151052167ab1
+  name: Sandbox
+  shortName: sb
+  owner:
+    id: 587399620cf2151052167aae
+    username: jukka.nikki@kolumbus.fi
+    context: apimanager
+    idpId: 58341db4e63b1219f0f068d1
+    email: jukka.nikki@kolumbus.fi
+    firstName: Jukka Nikki
+    lastName: ''
+    status: ACTIVE
+    lastLoginTime: '2017-01-09T14:08:58.502+0000'
+    url: 'https://us.apiconnect.ibmcloud.com/v1/users/587399620cf2151052167aae'
+  apiCenter: false
+  baseUrl: 'https://api.us.apiconnect.ibmcloud.com/nikki-consulting-dev/sb'
+  portalType: BASIC
+  portalUrl: 'https://developer.us.apiconnect.ibmcloud.com/nikki-consulting-dev/sb'
+  advPortalUrl: 'https://sb-nikki-consulting-dev.developer.us.apiconnect.ibmcloud.com'
+  gatewayType: DataPowerGateway
+  idp: 587399650cf2151052167abe
+  idps:
+    - 587399650cf2151052167abe
+  availableRoles:
+    - developer
+    - viewer
+  default: false
+  autoDeploy: true
+  gatewayClusterUrl: /gatewayClusters/PRODAPIC_APIMGMT_GATEWAY
+  restrictedDeployment: false
+  invitationEnabled: true
+  selfSignUpEnabled: true
+  spaceEnabled: false
+  spaceIds:
+    - 587399650cf2151052167ac6
+  testAppEnabled: true
+  testAppCredentials:
+    clientId: 1012345e-67bc-4cfa-98a3-876b3e3b2ffb
+    clientSecret: X7cH6eI5cF2rQ3xM2jU3lD6gF1gN1eT2gF2nS5pK1nD5qK8pG7
+  createdAt: '2017-01-09T14:08:37.785+0000'
+  updatedAt: '2017-01-09T14:08:37.785+0000'
+  createdBy: apim-ops@wwpdl.vnet.ibm.com
+  updatedBy: apim-ops@wwpdl.vnet.ibm.com
+  url: >-
+    https://us.apiconnect.ibmcloud.com/v1/orgs/587399640cf2151052167ab1/environments/587399650cf2151052167abd
+  productDeploymentApprovalRequiredStates: []
+  orgName: nikki-consulting-dev
+space:
+  none: true
+app:
+  new: true
+  name: flowmarkt
+id: cb166131-99f7-4e3e-9a26-0c725a4a486f
+target: 1.0.0
