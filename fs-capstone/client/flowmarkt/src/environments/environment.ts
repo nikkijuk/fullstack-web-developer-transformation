@@ -7,8 +7,10 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000', 
-  baseTag: 'items',
+  baseUrl: 'http://apiconnect-e5c7e9eb-aacd-4e75-aa19-20e4e75caab7.nikki-consulting-dev.apic.mybluemix.net/api',
+  baseTag: 'Notes',
+  //baseUrl: 'http://localhost:3000', 
+  //baseTag: 'items',
   clientIdHeader: 'x-ibm-client-id',
   clientIdDefault: 'default',
   clientSecretHeader: 'x-ibm-client-secret',
