@@ -102,37 +102,47 @@ title = 'Flow Markt';
 
 ng generate component fm-item-edit-form
 
+read from console what is created
+
+```
  create src/app/fm-item-edit-form/fm-item-edit-form.component.css
  create src/app/fm-item-edit-form/fm-item-edit-form.component.html
  create src/app/fm-item-edit-form/fm-item-edit-form.component.spec.ts
  create src/app/fm-item-edit-form/fm-item-edit-form.component.ts
  update src/app/app.module.ts
+```
 
 # create list of items component
 
 ng generate component fm-item-details
 
+```
  create src/app/fm-item-details/fm-item-details.component.css
  create src/app/fm-item-details/fm-item-details.component.html
  create src/app/fm-item-details/fm-item-details.component.spec.ts
  create src/app/fm-item-details/fm-item-details.component.ts
  update src/app/app.module.ts
+```
 
 # create item details component
 
 ng generate component fm-item-list
 
+```
  create src/app/fm-item-list/fm-item-list.component.css
  create src/app/fm-item-list/fm-item-list.component.html
  create src/app/fm-item-list/fm-item-list.component.spec.ts
  create src/app/fm-item-list/fm-item-list.component.ts
  update src/app/app.module.ts
+```
 
 # create model for item
 
 ng generate class fm-item
 
+```
  create src/app/fm-item.ts
+```
 
  add constructor to define attributes
 
@@ -151,8 +161,10 @@ for reading and writing items over http we need to create simple service
 
 ng generate service fm-item-service
 
+```
  create src/app/fm-item-service.service.ts
  WARNING Service is generated but not provided, it must be provided to be used
+```
 
 # provide service to components within module
 
@@ -210,6 +222,8 @@ export class FmItemService {
 
 to 	understand how observables & subscribe work see https://github.com/ReactiveX/rxjs
 
+important: this is all "sunny day" code -- later on some error handling was added using rxjs catch (..) method
+
 ## create routes
 
 create routes for main page (containing list of items), single item (id) and creating new
@@ -236,9 +250,11 @@ create routes for main page (containing list of items), single item (id) and cre
    ])
 ```
 
-
+routes are fine, but now you need to define where result of routing is shown
 
 ## add placeholder for routing to app.component.html page
+
+router-outlet defines where spa shows views of components to which user navigates using routes
 
 ```
 <div class="container">
@@ -249,6 +265,8 @@ create routes for main page (containing list of items), single item (id) and cre
 after this result of routing should be seen inside main page
 
 ## add menu to app.component.html page
+
+menu doesn't need to be catchy - here very simple example
 
 ```
 <header class="navbar navbar-light navbar-static-top">
@@ -272,9 +290,19 @@ after this result of routing should be seen inside main page
 </div>
 ```
 
-menu is impelemented using bootstraps navigation components https://v4-alpha.getbootstrap.com/components/navbar/
+menu is impelemented using bootstraps navigation components https://getbootstrap.com/examples/navbar/
 
 ## add details service
+
+details component uses itemService during initialization to find item which identifier ("id") is passed to it as part of route
+
+also here is rxjs used to subscribe parameters of route, as well as to subscribe to result of getItem service
+
+get params
+- this.route.params.subscribe(params =>
+
+get results of service
+- this.itemService.getItem(itemId).subscribe(item =>
 
 fm-item.details.component.ts
 
@@ -310,8 +338,9 @@ export class FmItemDetailsComponent implements OnInit {
 
 ## add details view
 
-fm-item.details.component.html
+ngIf directive of angular2 is used to show details only if selectedItem was found using given id
 
+fm-item.details.component.html
 
 ```
 <!-- information is only shown if selected item has value -->
@@ -322,64 +351,85 @@ fm-item.details.component.html
 </div>
 ```
 
-# add pipe to shorten long texts
+# create pipe to shorten long texts
+
+create pipe called truncate
 
 ng generate pipe truncate
 
+```
  create src/app/truncate.pipe.spec.ts
  create src/app/truncate.pipe.ts
  update src/app/app.module.ts
+```
+
+let pipes tranform method shorten and manipulate context as you need
+
+note how typescript uses additional question mark to define if parameter is optional (maxLength?: number)
 
 ```
-import {isUndefined} from "util";
+@Pipe({
+  name: 'truncate'
+})
+export class TruncatePipe implements PipeTransform {
 
- transform(value: string, maxLength?: number, appendix?: string) : string {
+  transform(value: string, maxLength?: number, appendix?: string) : string {
 
-   let limit = (isUndefined(maxLength)) ? 10 : maxLength;
-   let trail =(isUndefined(appendix)) ? '...' : appendix;
+    let limit = (isUndefined(maxLength)) ? 10 : maxLength;
+    let trail =(isUndefined(appendix)) ? '...' : appendix;
 
-   return value.length > limit ? value.substring(0, limit) + trail : value;
- }
-```
+    return value.length > limit ? value.substring(0, limit) + trail : value;
+  }
+
+}```
 
 # add create new item form
 
-add reactive forms as dependency to app module
+angular has simple template oriented forms and more versatile reactive forms
 
-```
-import { ReactiveFormsModule } from '@angular/forms';
+this example uses template based forms, since they are dead simple
 
-(...)
-
-  imports: [
-	(...)
-    ReactiveFormsModule,
-```
+additional simple example can be found here https://dzone.com/articles/working-with-angular-template-forms
 
 # add html edit form
 
-note: this is plain form, no binding to ng
+binding local variable to angular form object
+- #f="ngForm"
+
+binding submit operation to method on component
+- (ngSubmit)="addItem(f.value)"
+
+binding single field to ngForm using name as key
+- <input ... name="title" required ngModel>
 
 ```
+<!-- simple template driven form -->
+<!-- ngForm is implicit object, which is connected to local variable 'f' -->
+<!-- 'f' is used call addItem method from container when submit is pressed -->
+<!-- each field in form must be marked with ngModel and is identified in ngForm object using value of name attribute -->
+
 <div class="container">
-    <form>
+    <!-- ngForm object is implicitly created to form-->
+    <!-- ngSubmit specifies method which is used to submit values -->
+    <form #f="ngForm" (ngSubmit)="addItem(f.value)">
         <div class="row">
           <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="title" name="title" required>
+              <input type="text" class="form-control" id="title" name="title" required ngModel>
             </div>
           </div>
           <div class="form-group">
             <label for="content" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
-              <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+              <!-- when form field is marked with ngModel name = "content" is used as key when binding value of field to ngForm-->
+              <textarea type="text" class="form-control" id="content" name="content" required ngModel></textarea> 
             </div>
           </div>
           <div class="form-group">
             <label for="author" class="col-sm-2 control-label">Author</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control" id="author" name="author" required>
+              <input type="text" class="form-control" id="author" name="author" required ngModel>
             </div>
           </div>
         </div>
@@ -401,16 +451,18 @@ note: this is plain form, no binding to ng
           </div>
         </div>
     </form>
-</div>
-```
+</div>```
 
 # add html edit component
 
-note: plain component, no forms yet
+injections 
+- itemService is needed as we want to use it to save values
+- router is needed as we want to use redirect to get back to main page after operation
+
+addItem method saves values
+- maps to forms (ngSubmit)="addItem(f.value)"
 
 ```
-import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-fm-item-edit-form',
   templateUrl: './fm-item-edit-form.component.html',
@@ -418,11 +470,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FmItemEditFormComponent implements OnInit {
 
-  constructor() {
-  }
+  // inject item service and router
+  constructor(private itemService: FmItemService, private router: Router) {}
 
   ngOnInit() {
   }
+
+  addItem(data) {
+    // save values using service
+    // values are taken directly from passed object, name of form field used as key
+    this.itemService.addItem(data['title'], data['content'], data['author'], new Date().toLocaleString());
+
+    // navigate back to main page using router
+    this.router.navigate(['/']);
+  }
+
 
 }
 ```
