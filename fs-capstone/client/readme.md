@@ -401,7 +401,7 @@ binding submit operation to method on component
 - (ngSubmit)="addItem(f.value)"
 
 binding single field to ngForm using name as key
-- <input ... name="title" required ngModel>
+- < input ... name="title" required ngModel >
 
 ```
 <!-- simple template driven form -->
