@@ -452,7 +452,8 @@ binding single field to ngForm using name as key
           </div>
         </div>
     </form>
-</div>```
+</div>
+```
 
 # add html edit component
 
@@ -489,6 +490,9 @@ export class FmItemEditFormComponent implements OnInit {
 
 }
 ```
+# deployment
+
+the whole stuff was deployed to firebase, and it worker ok - I didn't use angularFire, but only plain firebase for hosting
 
 # under is some cli commands
 
