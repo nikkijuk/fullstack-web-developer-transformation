@@ -28,18 +28,16 @@ This is repository Full Stack Web Developer courses capstone project
 * MV* Frameworks: Angular (2.X)
 * Javascript 'dialect': TypeScript
 * CSS 'dialect' : CSS3 with SASS in SCSS format
-* Reactive libraries: Cycle.js? RxJs? -- still open
-* Styling: Bootsrap 4 with SASS 
-* Testing: Jasmine? -- still open
-* Mobile: Ionic? NativeScript? Onsen UI? PWA with Angular-Mobile? -- still open
+* Reactive libraries: RxJs as it's embedded in Angular
+* Styling: Bootsrap with SASS 
+* Testing: Jasmine? -- TBD
+* Mobile: Ionic? NativeScript? Onsen UI? PWA with Angular-Mobile? -- TBD
 
 
 ## Server side Technologies 
 
-* Auth0
-* Bluemix Api Connect
-* Express.js
-* Cloudant (NoSql, CouchDB based)
+* FireBase
+* Bluemix Api Connect (including Express.js)
 
 ## Tools
 
