@@ -40,19 +40,19 @@ My current guesses for match are
 
 * Javascript 'dialect': ES6 (with Babel or Traceur) or TypeScript
 * CSS 'dialect' : CSS3 with SASS in SCSS format
-* Frameworks: AngularJs? React? Elm? -- still open
-* Reactive libraries: Cycle.js? RxJs? -- still open
-* Layouts: Bootsrap 4 with SASS 
+* Frameworks: Angular? React? Elm? -- still open, depends on development teams history / preferences
+* Reactive libraries: RxJs seems de facto standard
+* Layouts: Bootsrap with SASS / SCSS format 
 * Testing: Jasmine? -- still open
-* Mobile: Cordova? Ionic? React Native? Html5? -- still open
+* Mobile: Ionic? NativeScript? React Native? PWA? -- still open, depends on rquirements of project
 
-It's just not applicable to try all of these, so I'll let [ThoughtWorks Technology Radar] (https://www.thoughtworks.com/de/radar) to guide me.
+It is useful to aligh with [ThoughtWorks Technology Radar] (https://www.thoughtworks.com/de/radar) and let it guide me.
 
-## Plan
+## Execution
 
-I've decided to formalize my learning effort around MOOC course, and found one from [Coursera] (https://www.coursera.org/specializations/full-stack)
+I decided to formalize my learning effort around MOOC course, and found one from [Coursera] (https://www.coursera.org/specializations/full-stack)
 
-In addition I'll go thru needed introductory and intermediate courses from [Sitepoint Premium] (https://www.sitepoint.com)
+In addition I did go thru needed introductory and intermediate courses from [Sitepoint Premium] (https://www.sitepoint.com)
 
 Course & Video material alone wouldn't be enought, so I've decided to harvest some resources which get me forward. I prefer having some books in addtion to online references.
 
@@ -60,23 +60,17 @@ Course & Video material alone wouldn't be enought, so I've decided to harvest so
 
 Books
 
-* [Luis Atencio : Functional programming in Javasript] (https://www.manning.com/books/functional-programming-in-javascript)
 * [John Resig : Javascript ninja second edition] (https://www.manning.com/books/secrets-of-the-javascript-ninja-second-edition)
+* [Luis Atencio : Functional programming in Javasript] (https://www.manning.com/books/functional-programming-in-javascript)
+
+and some meap's from Manning plus RxJs book from Pragmatic programmers.
 
 ## Tools
-
-I'm working on this material on two machines and environments
-
-RHEL 6.X based environment
-
-- Eclipse Neon for html, css, js, git
-
-OSX based enviroment
 
 - Sourcetree for Git
 - Brackets for html, css, js
 
-Links
+## Links
 
 - http://scs-architecture.org/
 - http://roca-style.org/
